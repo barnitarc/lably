@@ -18,7 +18,7 @@ import com.xfactor.lably.entity.Admin;
 public class AdminController{
     ArrayList<Admin> admins = new ArrayList<>();
 
-    @GetMapping("/getLabs")
+    @GetMapping("/getAdmins")
     public ArrayList<Admin> getLabs() {
         return admins;
     }
@@ -39,7 +39,7 @@ public class AdminController{
     }
     @GetMapping("/getAdminsByUsername")
     @ResponseBody
-    public Admin getLabByName(@RequestParam String name5){
+    public Admin getAdminByName(@RequestParam String name5){
         int flag=0;
         for(Admin l:admins){
             if(name5.equals(l.getUsername())==true)
