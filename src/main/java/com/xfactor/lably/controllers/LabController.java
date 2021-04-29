@@ -1,7 +1,7 @@
 package com.xfactor.lably.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,7 +39,7 @@ public class LabController{
     @GetMapping("/getLabsByName")
     @ResponseBody
     public Lab getLabByName(@RequestParam String name4){
-        int flag=0;
+        
         for(Lab l:labs){
             if(name4.equals(l.getName())==true)
                 return l;

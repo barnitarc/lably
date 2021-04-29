@@ -1,7 +1,7 @@
 package com.xfactor.lably.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +19,7 @@ public class AdminController{
     ArrayList<Admin> admins = new ArrayList<>();
 
     @GetMapping("/getAdmins")
-    public ArrayList<Admin> getLabs() {
+    public ArrayList<Admin> getAdmin() {
         return admins;
     }
 
@@ -40,7 +40,7 @@ public class AdminController{
     @GetMapping("/getAdminsByUsername")
     @ResponseBody
     public Admin getAdminByName(@RequestParam String name5){
-        int flag=0;
+        
         for(Admin l:admins){
             if(name5.equals(l.getUsername())==true)
                 return l;
