@@ -1,0 +1,18 @@
+com/xfactor/lably/controllers/LabController.java
+ com.xfactor.lably.controllers.LabController
+com/xfactor/lably/LablyApplication.java
+ com.xfactor.lably.LablyApplication
+com/xfactor/lably/entity/Lab.java
+ com.xfactor.lably.entity.Lab
+com/xfactor/lably/entity/Admin.java
+ com.xfactor.lably.entity.Admin
+com/xfactor/lably/controllers/AdminController.java
+ com.xfactor.lably.controllers.AdminController
+com/xfactor/lably/entity/Test.java
+ com.xfactor.lably.entity.Test
+com/xfactor/lably/entity/Customer.java
+ com.xfactor.lably.entity.Customer
+com/xfactor/lably/controllers/TestController.java
+ com.xfactor.lably.controllers.TestController
+com/xfactor/lably/controllers/CustomerController.java
+ com.xfactor.lably.controllers.CustomerController
