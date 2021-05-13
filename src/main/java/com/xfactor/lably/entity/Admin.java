@@ -1,6 +1,7 @@
 package com.xfactor.lably.entity;
 
 public class Admin {
+    private String Id;
 
     private String name;
 
@@ -8,6 +9,7 @@ public class Admin {
 
     private String password;
     
+    private String department;
 
     public String getName() {
         return name;
@@ -31,6 +33,22 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDept() {
+        return department;
+    }
+
+    public void setDept(String dept) {
+        this.department = dept;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        this.Id = id;
     }
 
     

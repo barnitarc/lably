@@ -12,7 +12,9 @@ $ curl -v localhost:8080
 ```
 
 ## Entities to create
-
+-Get
+  = path parem
+  =request parem
 ### Lab
  - String name
  - String address

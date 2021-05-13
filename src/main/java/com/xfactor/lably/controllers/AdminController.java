@@ -16,6 +16,11 @@ import com.xfactor.lably.entity.Admin;
 @RequestMapping("/admin")
 
 public class AdminController{
+    //@GetMapping() will work too. we dont need to put a / after admin in this case
+    @GetMapping("/")
+    public String admin(){
+        return "This is when you enter 127.0.0.1:8081/admin/";
+    }
     ArrayList<Admin> admins = new ArrayList<>();
 
     @GetMapping("/getAdmins")
@@ -34,7 +39,9 @@ public class AdminController{
         String pass=admin.getPassword();
         pass=pass.toUpperCase();
         admin.setPassword(pass);
+        admin.setId(UUID.randomUUID().toString());
         admins.add(admin);
+        
         return admin;
     }
     @GetMapping("/getAdminsByUsername")
@@ -46,6 +53,7 @@ public class AdminController{
                 return l;
         }
         abc();
+        System.out.println("not yet available");
         return null;
     }
 
