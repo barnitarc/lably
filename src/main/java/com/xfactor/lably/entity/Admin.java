@@ -1,14 +1,29 @@
 package com.xfactor.lably.entity;
 
-public class Admin {
-    private String Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="tbl_admin")
+public class Admin {
+    @Id
+    @GeneratedValue
+    @Column(name="id")
+    private Long Id;
+
+
+    @Column(name="name")
     private String name;
 
+    @Column(name="username")
     private String username;
 
     private String password;
-    
+
+    @Column(name="dept")
     private String department;
 
     public String getName() {
@@ -43,13 +58,15 @@ public class Admin {
         this.department = dept;
     }
 
-    public String getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(String id) {
-        this.Id = id;
+    public void setId(Long id) {
+        Id = id;
     }
+
+    
 
     
 }

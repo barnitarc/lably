@@ -2,6 +2,7 @@ package com.xfactor.lably.controllers;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.*;
 
 import com.xfactor.lably.entity.Customer;
+import com.xfactor.lably.repository.CustomerRepository;
 
 
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
+
+    @Autowired
+    CustomerRepository customerRepository;
+
     @GetMapping()
     public String customer(){
         return "Welcome to customer controller";
@@ -26,16 +32,18 @@ public class CustomerController {
     ArrayList<Customer> customers = new ArrayList<>();
 
     @GetMapping("/getCustomer")
-    public ArrayList<Customer> getCustomer() {
-        return customers;
+    public List<Customer> getCustomer() {
+        List<Customer> persistedCustomers=customerRepository.findAll();
+        return persistedCustomers;
     }
 
     @PostMapping("/addCustomer")
     public Customer addCustomer(@RequestBody Customer cust)
     {
         cust.setName(cust.getName().toUpperCase());
-        customers.add(cust);
-        return cust;
+        Customer persistedcust= customerRepository.save(cust);
+        return persistedcust;
+        
     }
 
     @GetMapping("/getCustomersByName")

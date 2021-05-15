@@ -1,5 +1,6 @@
 package com.xfactor.lably.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.*;
 //import com.xfactor.lably.entity.Lab;
 import com.xfactor.lably.entity.Test;
+import com.xfactor.lably.repository.TestRepository;
 
 @RestController
 @RequestMapping("/test")
 public class TestController {
+
+    @Autowired
+    TestRepository testRepository;
 
     // http://localhost:8080/test/hello
     @GetMapping("/hello")
@@ -62,15 +67,18 @@ public class TestController {
     ArrayList<Test> tests = new ArrayList<>();
 
     @GetMapping("/getTests")
-    public ArrayList<Test> getTest() {
-        return tests;
+    public List<Test> getTest() {
+        List<Test> persistedtests=testRepository.findAll();
+        return persistedtests;
     }
 
     @PostMapping("/addTest")
     public Test addAdmin(@RequestBody Test t) {
         t.setName(t.getName().toUpperCase());
-        tests.add(t);
-        return t;
+        //tests.add(t);
+        Test persistedtests= testRepository.save(t);
+        return persistedtests;
+        
 
     }
 
